@@ -1,0 +1,123 @@
+<section id="regalos" class="snap-section bg-tropical-grad" aria-label="Mesa de Regalos y Cuentas Bancarias">
+      <div class="max-w-5xl w-full mx-auto px-4 z-10 flex flex-col justify-center h-full">
+        
+        <header class="text-center mb-3 sm:mb-5">
+          <span class="text-xs uppercase tracking-widest text-teal-800 font-semibold bg-white px-3 py-1 rounded-full border border-teal-200">
+            Muestra de Afecto
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-serif text-stone-900 mt-1">
+            Mesa de Regalos &amp; Cuentas
+          </h2>
+          <p class="text-stone-600 text-xs sm:text-sm max-w-md mx-auto">
+            Tu presencia es nuestro mayor tesoro. Si deseas hacernos un presente, ponemos a tu disposición nuestras dos modalidades oficiales:
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-4xl mx-auto">
+          
+          <!-- TARJETA SAGA FALABELLA NOVIOS -->
+          <article class="card-floral p-5 flex flex-col justify-between text-center">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-200 flex items-center justify-center mx-auto mb-2 text-teal-700 text-2xl" aria-hidden="true">
+                <i class="fa-solid fa-gift"></i>
+              </div>
+              <h3 class="text-xl font-serif font-bold text-stone-900">Novios Saga Falabella</h3>
+              <p class="text-stone-500 text-xs mt-1">
+                Encuentra nuestra lista de artículos seleccionados en la plataforma oficial de novios Saga Falabella.
+              </p>
+
+              <div class="mt-3 p-2.5 bg-stone-50 rounded-xl border border-stone-200 text-xs">
+                <span class="text-stone-500 block text-[11px]">Código de Novios Oficial:</span>
+                <span class="font-mono font-bold text-teal-800 text-sm">NOV-KLEIBERT-SANDY</span>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a 
+                href="https://www.falabella.com.pe/falabella-pe/page/novios-falabella" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl btn-tropical text-xs font-semibold"
+                aria-label="Ingresar al catálogo de Novios Saga Falabella en nueva pestaña"
+              >
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                <span>Ver Lista en Saga Falabella</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- TARJETA TRANSFERENCIAS BANCARIAS -->
+          <article class="card-floral p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 text-lg flex-shrink-0" aria-hidden="true">
+                  <i class="fa-solid fa-receipt"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-serif font-bold text-stone-900">Transferencias Directas</h3>
+                  <p class="text-[11px] text-stone-500">Toca el botón para copiar los datos</p>
+                </div>
+              </div>
+
+              <!-- Lista con botones de copiado rápido -->
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-stone-50 rounded-lg border border-stone-200 flex justify-between items-center">
+                  <div>
+                    <span class="font-bold text-stone-800 block text-[11px]">BCP Soles</span>
+                    <span class="font-mono text-stone-600 text-xs select-all">191-94829381-0-45</span>
+                    <span class="block text-[10px] text-stone-400">Kleibert José Medina Gómez</span>
+                  </div>
+                  <button 
+                    onclick="copyData('19194829381045', 'Cuenta BCP copiada exitosamente')" 
+                    class="p-2 text-teal-700 hover:bg-teal-100 rounded-lg transition"
+                    aria-label="Copiar número de cuenta BCP de Kleibert Medina"
+                    title="Copiar cuenta"
+                  >
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="p-2 bg-stone-50 rounded-lg border border-stone-200 flex justify-between items-center">
+                  <div>
+                    <span class="font-bold text-stone-800 block text-[11px]">Interbank / BBVA (CCI)</span>
+                    <span class="font-mono text-stone-600 text-xs select-all">002-191-194829381045-52</span>
+                    <span class="block text-[10px] text-stone-400">Sandy Dannae Mansilla Rivera</span>
+                  </div>
+                  <button 
+                    onclick="copyData('00219119482938104552', 'CCI interbancario copiado exitosamente')" 
+                    class="p-2 text-teal-700 hover:bg-teal-100 rounded-lg transition"
+                    aria-label="Copiar CCI interbancario de Sandy Mansilla"
+                    title="Copiar CCI"
+                  >
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="p-2 bg-stone-50 rounded-lg border border-stone-200 flex justify-between items-center">
+                  <div>
+                    <span class="font-bold text-stone-800 block text-[11px]">Yape / Plin (Celulares Oficiales)</span>
+                    <span class="font-mono text-stone-600 text-xs select-all">976 963 819 / 912 933 385</span>
+                    <span class="block text-[10px] text-stone-400">Kleibert Medina &amp; Sandy Mansilla</span>
+                  </div>
+                  <button 
+                    onclick="copyData('976963819', 'Teléfono 976 963 819 para Yape/Plin copiado')" 
+                    class="p-2 text-teal-700 hover:bg-teal-100 rounded-lg transition"
+                    aria-label="Copiar número para Yape y Plin"
+                    title="Copiar número telefónico"
+                  >
+                    <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-[10px] text-stone-400 text-center mt-2">
+              ¡Agradecemos inmensamente su bondad y aprecio!
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>

@@ -1,0 +1,124 @@
+<section id="asistencia" class="snap-section bg-white" aria-label="Confirmación de Asistencia RSVP Individual">
+      <div class="max-w-4xl w-full mx-auto px-4 z-10 flex flex-col justify-center h-full">
+        
+        <header class="text-center mb-2 sm:mb-4">
+          <span class="text-xs uppercase tracking-widest text-teal-800 font-semibold bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+            Reserva de Lugar • Registro Individual
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-serif text-stone-900 mt-1">
+            Confirmación de Asistencia (RSVP)
+          </h2>
+          <p class="text-stone-600 text-xs sm:text-sm max-w-lg mx-auto">
+            Para la mejor organización de mesas e invitaciones oficiales, <strong>el registro se realiza de 1 en uno por persona</strong>. La confirmación llegará a <strong>kleibertmedina@gmail.com</strong>.
+          </p>
+        </header>
+
+        <!-- Formulario RSVP Individual (1 persona) -->
+        <div class="card-floral p-4 sm:p-5 w-full max-w-2xl mx-auto shadow-sm">
+          <form id="rsvp-form" class="space-y-3" novalidate>
+            
+            <!-- Aviso didáctico de registro 1 a 1 -->
+            <div class="bg-teal-50/90 border border-teal-200/80 rounded-xl px-3 py-2 flex items-center justify-between text-[11px] text-teal-900">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-user-check text-teal-700 text-sm" aria-hidden="true"></i>
+                <span><strong>Cupo individual:</strong> 1 persona por formulario. Si vas acompañado, envía un registro por cada invitado.</span>
+              </div>
+              <span class="bg-white border border-teal-300 font-bold px-2 py-0.5 rounded text-[10px] text-teal-800 shrink-0">1 Invitado</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div>
+                <label for="rsvp-fullname" class="block text-xs font-medium text-stone-700 mb-0.5">
+                  Nombre y Apellidos completos *
+                </label>
+                <input 
+                  type="text" 
+                  id="rsvp-fullname" 
+                  required 
+                  maxlength="70"
+                  placeholder="Ej: Daniel Velásquez Ramos" 
+                  class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white transition"
+                >
+              </div>
+
+              <div>
+                <label for="rsvp-phone" class="block text-xs font-medium text-stone-700 mb-0.5">
+                  Teléfono / WhatsApp de contacto *
+                </label>
+                <input 
+                  type="tel" 
+                  id="rsvp-phone" 
+                  required
+                  maxlength="20"
+                  placeholder="Ej: 976 963 819 / 912 933 385" 
+                  class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white transition"
+                >
+              </div>
+            </div>
+
+            <!-- Asistencia Sí / No -->
+            <fieldset>
+              <legend class="block text-xs font-medium text-stone-700 mb-1">¿Estarás presente en nuestro gran día? *</legend>
+              <div class="grid grid-cols-2 gap-2">
+                <label class="flex items-center gap-2 p-2 rounded-lg border border-teal-200 bg-white cursor-pointer hover:bg-teal-50/60 transition text-xs">
+                  <input type="radio" name="attendance" value="¡Sí, asistiré con gran alegría!" checked class="text-teal-600 focus:ring-teal-500">
+                  <span class="font-medium text-stone-800">¡Sí, asistiré!</span>
+                </label>
+                <label class="flex items-center gap-2 p-2 rounded-lg border border-stone-200 bg-white cursor-pointer hover:bg-stone-50 transition text-xs">
+                  <input type="radio" name="attendance" value="Lamentablemente no podré asistir" class="text-teal-600 focus:ring-teal-500">
+                  <span class="text-stone-600">No podré asistir</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div>
+              <label for="rsvp-dietary" class="block text-xs font-medium text-stone-700 mb-0.5">
+                Restricciones alimentarias / Alergias del invitado (Opcional)
+              </label>
+              <input 
+                type="text" 
+                id="rsvp-dietary" 
+                maxlength="60"
+                placeholder="Ej: Vegetariano, intolerante a la lactosa, celíaco, etc." 
+                class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white transition"
+              >
+            </div>
+
+            <div>
+              <label for="rsvp-message" class="block text-xs font-medium text-stone-700 mb-0.5">
+                Mensaje adicional para Kleibert y Sandy (Opcional)
+              </label>
+              <textarea 
+                id="rsvp-message" 
+                rows="2" 
+                maxlength="200"
+                placeholder="Un saludo o anotación adicional para los novios..." 
+                class="w-full text-xs p-2 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white resize-none"
+              ></textarea>
+            </div>
+
+            <div class="pt-1 flex flex-col sm:flex-row gap-2">
+              <button 
+                type="submit" 
+                class="flex-1 py-2 px-3 rounded-lg btn-tropical text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow"
+                aria-label="Confirmar asistencia individual por correo a kleibertmedina@gmail.com"
+              >
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>Confirmar Mi Asistencia (Correo)</span>
+              </button>
+
+              <button 
+                type="button" 
+                onclick="sendWhatsAppRSVP()" 
+                class="py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition shadow"
+                aria-label="Confirmar asistencia individual vía WhatsApp"
+              >
+                <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i>
+                <span>WhatsApp Novios</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>

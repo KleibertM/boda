@@ -1,0 +1,143 @@
+<section id="musica" class="snap-section bg-white" aria-label="Playlist y Canciones de la Boda">
+      <div class="max-w-5xl w-full mx-auto px-4 z-10 flex flex-col justify-center h-full">
+        
+        <header class="text-center mb-3 sm:mb-4">
+          <span class="text-xs uppercase tracking-widest text-teal-800 font-semibold bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
+            Nuestra Celebración
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-serif text-stone-900 mt-1">
+            Música &amp; Playlist Colaborativa
+          </h2>
+          <p class="text-stone-500 text-xs sm:text-sm max-w-md mx-auto">
+            ¡La banda sonora de nuestra unión! Conoce nuestras favoritas y sugiere la canción que no puede faltar en la fiesta.
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-4xl mx-auto">
+          
+          <!-- COLUMNA 1: CANCIONES FAVORITAS DE LOS NOVIOS -->
+          <article class="card-floral p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-stone-100">
+                <h3 class="font-serif font-bold text-stone-900 text-base sm:text-lg flex items-center gap-2">
+                  <i class="fa-solid fa-compact-disc text-teal-600" aria-hidden="true"></i>
+                  <span>Favoritas de Kleibert &amp; Sandy</span>
+                </h3>
+                <span class="text-[10px] text-teal-800 bg-teal-50 px-2 py-0.5 rounded-full font-medium">Temas Nupciales</span>
+              </div>
+
+              <div class="space-y-2 text-xs">
+                <div class="flex items-center gap-3 p-2 bg-stone-50 rounded-lg border border-stone-200/60">
+                  <span class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-xs" aria-hidden="true">
+                    <i class="fa-solid fa-heart"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-semibold text-stone-900 truncate">Hasta Mi Final</p>
+                    <p class="text-[10px] text-stone-500 truncate">Il Divo — Vals de los Novios</p>
+                  </div>
+                  <button onclick="previewSong('Hasta Mi Final - Il Divo')" class="p-1.5 text-teal-700 hover:text-teal-900" aria-label="Sintonizar Hasta Mi Final">
+                    <i class="fa-solid fa-play text-xs" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 p-2 bg-stone-50 rounded-lg border border-stone-200/60">
+                  <span class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs" aria-hidden="true">
+                    <i class="fa-solid fa-music"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-semibold text-stone-900 truncate">Perfect</p>
+                    <p class="text-[10px] text-stone-500 truncate">Ed Sheeran — Entrada Nupcial</p>
+                  </div>
+                  <button onclick="previewSong('Perfect - Ed Sheeran')" class="p-1.5 text-teal-700 hover:text-teal-900" aria-label="Sintonizar Perfect">
+                    <i class="fa-solid fa-play text-xs" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-3 p-2 bg-stone-50 rounded-lg border border-stone-200/60">
+                  <span class="w-8 h-8 rounded-lg bg-cyan-700 text-white flex items-center justify-center font-bold text-xs" aria-hidden="true">
+                    <i class="fa-solid fa-bolt"></i>
+                  </span>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-semibold text-stone-900 truncate">Caminar de Tu Mano</p>
+                    <p class="text-[10px] text-stone-500 truncate">Río Roma ft. Fonseca — Inicio de Fiesta</p>
+                  </div>
+                  <button onclick="previewSong('Caminar de Tu Mano - Río Roma')" class="p-1.5 text-teal-700 hover:text-teal-900" aria-label="Sintonizar Caminar de Tu Mano">
+                    <i class="fa-solid fa-play text-xs" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini reproductor visual -->
+            <div class="mt-3 p-2 bg-stone-900 text-white rounded-lg flex items-center justify-between text-[11px]">
+              <span id="now-playing-label" class="truncate text-teal-300">♫ Selecciona o sugiere un tema musical</span>
+              <i class="fa-solid fa-headphones text-teal-400" aria-hidden="true"></i>
+            </div>
+          </article>
+
+          <!-- COLUMNA 2: RECOMENDACIÓN DE INVITADOS -->
+          <article class="card-floral p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-stone-100">
+                <h3 class="font-serif font-bold text-stone-900 text-base sm:text-lg flex items-center gap-2">
+                  <i class="fa-solid fa-guitar text-teal-600" aria-hidden="true"></i>
+                  <span>Recomienda tu Canción</span>
+                </h3>
+                <span id="playlist-count-badge" class="text-[10px] text-teal-800 bg-teal-50 px-2 py-0.5 rounded-full font-medium">3 sugerencias</span>
+              </div>
+
+              <!-- Formulario de Canciones -->
+              <form id="playlist-form" class="space-y-2">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <label class="sr-only" for="recommender-name">Tu nombre</label>
+                  <input 
+                    type="text" 
+                    id="recommender-name" 
+                    placeholder="Tu nombre..." 
+                    maxlength="50"
+                    required 
+                    class="text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:ring-1 focus:ring-teal-500 outline-none w-full bg-white"
+                  >
+                  <label class="sr-only" for="song-name">Canción</label>
+                  <input 
+                    type="text" 
+                    id="song-name" 
+                    placeholder="Canción..." 
+                    maxlength="60"
+                    required 
+                    class="text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:ring-1 focus:ring-teal-500 outline-none w-full bg-white"
+                  >
+                  <label class="sr-only" for="artist-name">Artista</label>
+                  <input 
+                    type="text" 
+                    id="artist-name" 
+                    placeholder="Artista..." 
+                    maxlength="60"
+                    required 
+                    class="text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:ring-1 focus:ring-teal-500 outline-none w-full bg-white"
+                  >
+                </div>
+                <button 
+                  type="submit" 
+                  class="w-full py-1.5 px-3 rounded-lg btn-tropical text-xs font-semibold"
+                  aria-label="Agregar canción a la lista de bodas"
+                >
+                  <i class="fa-solid fa-plus mr-1" aria-hidden="true"></i> Sumar a la Playlist
+                </button>
+              </form>
+
+              <!-- Lista en vivo de temas propuestos -->
+              <div id="guest-songs-container" class="mt-2 max-h-24 overflow-y-auto space-y-1.5 pr-1 no-scrollbar">
+                <!-- Se poblará dinámicamente con JS / LocalStorage -->
+              </div>
+            </div>
+
+            <p class="text-[10px] text-stone-400 text-center mt-2">
+              ¡El DJ preparará la mejor mezcla con sus temas favoritos!
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>

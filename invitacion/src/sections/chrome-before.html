@@ -1,0 +1,30 @@
+
+
+  <!-- Canvas Interactivo de Pétalos y Hojas Tropicales -->
+  <canvas id="petals-canvas" aria-hidden="true"></canvas>
+
+  <!-- Indicador Lateral de Navegación por Secciones -->
+  <nav class="nav-indicator hidden md:flex" aria-label="Navegación de secciones de la boda">
+    <a href="#hero" class="nav-dot active" aria-label="Ir a Portada" data-idx="0"></a>
+    <a href="#ceremonias" class="nav-dot" aria-label="Ir a Ceremonias" data-idx="1"></a>
+    <a href="#regalos" class="nav-dot" aria-label="Ir a Mesa de Regalos" data-idx="2"></a>
+    <a href="#musica" class="nav-dot" aria-label="Ir a Playlist y Música" data-idx="3"></a>
+    <a href="#dedicatorias" class="nav-dot" aria-label="Ir a Muro de Dedicatorias y Versículos" data-idx="4"></a>
+    <a href="#asistencia" class="nav-dot" aria-label="Ir a Confirmar Asistencia" data-idx="5"></a>
+    <a href="#recuerdos" class="nav-dot" aria-label="Ir a Álbum de Fotos QR" data-idx="6"></a>
+  </nav>
+
+  <!-- Botón Sonido Ambiental (Web Audio API) -->
+  <aside class="fixed top-4 right-4 z-50">
+    <button 
+      id="ambient-sound-btn" 
+      class="flex items-center justify-center w-11 h-11 rounded-full bg-white/90 backdrop-blur-md border border-teal-200/80 text-teal-800 shadow-md hover:bg-teal-50 transition active:scale-95" 
+      aria-label="Reproducir o pausar melodía de fondo"
+      title="Melodía suave de boda"
+    >
+      <i id="sound-icon" class="fa-solid fa-music text-sm text-teal-700"></i>
+    </button>
+  </aside>
+
+  <!-- Contenedor Principal de Pantalla Completa con Snap Scroll -->
+  

@@ -1,0 +1,118 @@
+<section id="dedicatorias" class="snap-section bg-tropical-grad" aria-label="Muro de Dedicatorias y Versículos Bíblicos">
+      <div class="max-w-5xl w-full mx-auto px-4 z-10 flex flex-col justify-center h-full">
+        
+        <header class="text-center mb-2 sm:mb-4">
+          <span class="text-xs uppercase tracking-widest text-teal-800 font-semibold bg-white px-3 py-1 rounded-full border border-teal-200">
+            Palabras que Edifican
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-serif text-stone-900 mt-1">
+            Muro de Consejos &amp; Versículos
+          </h2>
+          <p class="text-stone-600 text-xs sm:text-sm max-w-lg mx-auto">
+            Déjanos una bendición bíblica, un consejo sabio o tus mejores deseos para nuestro nuevo hogar.
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 w-full max-w-4xl mx-auto">
+          
+          <!-- FORMULARIO DE DEDICATORIAS SEGURO (Columna Izquierda: 5 cols) -->
+          <div class="md:col-span-5 card-floral p-4 flex flex-col justify-between">
+            <form id="dedication-form" class="space-y-2.5" novalidate>
+              
+              <!-- TRAMPA HONEYPOT ANTI-BOT (Invisible para usuarios humanos) -->
+              <div class="anti-bot-field" aria-hidden="true">
+                <label for="honeypot_field">Si eres humano deja este campo vacío</label>
+                <input type="text" id="honeypot_field" name="honeypot_field" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div>
+                <label for="ded-author" class="block text-xs font-medium text-stone-700 mb-0.5">
+                  Tu nombre y parentesco *
+                </label>
+                <input 
+                  type="text" 
+                  id="ded-author" 
+                  required 
+                  maxlength="60"
+                  placeholder="Ej: Tía Maritza / Amigo Carlos" 
+                  class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white transition"
+                >
+              </div>
+
+              <div>
+                <label for="ded-type" class="block text-xs font-medium text-stone-700 mb-0.5">
+                  Tipo de Mensaje *
+                </label>
+                <select 
+                  id="ded-type" 
+                  class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white transition"
+                >
+                  <option value="Versículo Bíblico">📖 Versículo Bíblico</option>
+                  <option value="Consejo Matrimonial">💡 Consejo de Matrimonio</option>
+                  <option value="Bendición &amp; Deseos">🕊️ Bendición y Buenos Deseos</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="ded-citation" class="block text-xs font-medium text-stone-700 mb-0.5">
+                  Cita Bíblica o Referencia (Opcional)
+                </label>
+                <input 
+                  type="text" 
+                  id="ded-citation" 
+                  maxlength="50"
+                  placeholder="Ej: 1 Corintios 13:4-7 o Proverbios 3:3" 
+                  class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white transition"
+                >
+              </div>
+
+              <div>
+                <label for="ded-message" class="block text-xs font-medium text-stone-700 mb-0.5">
+                  Tu dedicatoria o versículo * (Máx. 300 letras)
+                </label>
+                <textarea 
+                  id="ded-message" 
+                  rows="3" 
+                  required 
+                  maxlength="300"
+                  placeholder="Escribe tu mensaje con amor y sabiduría..." 
+                  class="w-full text-xs p-2 rounded-lg border border-stone-300 focus:border-teal-500 focus:ring-1 focus:ring-teal-500 outline-none bg-white resize-none"
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                id="ded-submit-btn"
+                class="w-full py-2 px-3 rounded-lg btn-tropical text-xs font-semibold flex items-center justify-center gap-1.5 shadow"
+                aria-label="Publicar dedicatoria en el muro de los novios"
+              >
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <span>Dedicar a Kleibert &amp; Sandy</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- MURO VISUAL DE MENSAJES (Columna Derecha: 7 cols) -->
+          <div class="md:col-span-7 card-floral p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-stone-100">
+              <h3 class="font-serif font-bold text-stone-900 text-sm sm:text-base flex items-center gap-2">
+                <i class="fa-solid fa-feather-pointed text-teal-600" aria-hidden="true"></i>
+                <span>Mensajes para la posteridad</span>
+              </h3>
+              <span id="ded-count-badge" class="text-[10px] text-teal-800 bg-teal-50 px-2 py-0.5 rounded-full font-medium">3 bendiciones</span>
+            </div>
+
+            <!-- Contenedor con scroll para dedicatorias sanitizadas -->
+            <div id="dedications-wall" class="space-y-2.5 max-h-64 sm:max-h-72 overflow-y-auto pr-1 no-scrollbar">
+              <!-- Renderizado seguro por JavaScript -->
+            </div>
+
+            <div class="pt-2 text-center text-[10px] text-stone-400">
+              <i class="fa-solid fa-shield-halved text-teal-600 mr-1" aria-hidden="true"></i> Muro seguro protegido contra spam y bots
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>

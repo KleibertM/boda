@@ -1,0 +1,115 @@
+<section id="recuerdos" class="snap-section bg-tropical-grad" aria-label="Galería Didáctica de Fotos y Código QR">
+      <div class="max-w-5xl w-full mx-auto px-4 z-10 flex flex-col justify-center h-full">
+        
+        <header class="text-center mb-2 sm:mb-3">
+          <span class="text-xs uppercase tracking-widest text-teal-800 font-semibold bg-white px-3 py-1 rounded-full border border-teal-200">
+            Inmortalizando Cada Sonrisa
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-serif text-stone-900 mt-1">
+            Galería Didáctica &amp; Código QR
+          </h2>
+          <p class="text-stone-600 text-xs sm:text-sm max-w-lg mx-auto">
+            ¡Sube tus fotos de recuerdo en vivo o escanea el QR con tu móvil para sumarte al álbum comunitario!
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 w-full max-w-4xl mx-auto items-stretch">
+          
+          <!-- COLUMNA IZQUIERDA: CÓDIGO QR Y ENLACE OFICIAL (4 COLS) -->
+          <article class="md:col-span-4 card-floral p-3.5 sm:p-4 flex flex-col items-center justify-between text-center">
+            <span class="text-[11px] font-semibold text-teal-800 uppercase tracking-wider">
+              <i class="fa-solid fa-qrcode mr-1 text-teal-600" aria-hidden="true"></i> Escanea desde celular
+            </span>
+
+            <!-- Código QR Dinámico -->
+            <div class="p-2 bg-white rounded-xl border-2 border-teal-200 shadow-sm my-1">
+              <img 
+                id="qr-image" 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https%3A%2F%2Fdrive.google.com%2Fdrive%2Fu%2F0%2Ffolders%2Fboda-kleibert-y-sandy&color=18-22-25" 
+                alt="Código QR dinámico para subir fotos al álbum de Kleibert y Sandy" 
+                class="w-28 h-28 sm:w-32 sm:h-32 object-contain rounded-md"
+                loading="lazy"
+              >
+            </div>
+
+            <p class="text-stone-500 text-[10px] leading-tight">
+              Abre la cámara de tu smartphone para subir fotos en tiempo real al Google Drive de novios.
+            </p>
+
+            <div class="w-full mt-2 space-y-1.5">
+              <a 
+                id="qr-direct-link" 
+                href="https://drive.google.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="w-full inline-flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg btn-tropical text-[11px] font-semibold shadow"
+                aria-label="Abrir enlace de carpeta compartida en Google Drive"
+              >
+                <i class="fa-solid fa-cloud-arrow-up text-xs" aria-hidden="true"></i>
+                <span>Abrir Google Drive</span>
+              </a>
+
+              <div class="text-[9px] text-stone-400 text-center">
+                Contactos: 976 963 819 / 912 933 385
+              </div>
+            </div>
+          </article>
+
+          <!-- COLUMNA DERECHA: SUBIDA DIDÁCTICA Y VISOR DE FOTOS (8 COLS) -->
+          <article class="md:col-span-8 card-floral p-3.5 sm:p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-stone-100">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-images text-teal-600 text-base" aria-hidden="true"></i>
+                  <h3 class="font-serif font-bold text-stone-900 text-sm sm:text-base">
+                    Muro Fotográfico Interactivo
+                  </h3>
+                </div>
+                <span id="photo-count-badge" class="text-[10px] bg-teal-50 text-teal-800 px-2 py-0.5 rounded-full font-medium">6 fotos</span>
+              </div>
+
+              <!-- ZONA DIDÁCTICA DE CARGA (DRAG & DROP O BOTÓN) -->
+              <div 
+                id="gallery-drop-area"
+                class="gallery-drop-zone rounded-xl p-2.5 sm:p-3 text-center bg-teal-50/40 cursor-pointer hover:bg-teal-50/70 transition"
+              >
+                <input 
+                  type="file" 
+                  id="gallery-file-input" 
+                  accept="image/*" 
+                  multiple 
+                  class="hidden"
+                >
+                <div class="flex items-center justify-center gap-2 text-teal-800 font-semibold text-xs mb-0.5">
+                  <i class="fa-solid fa-cloud-arrow-up text-sm text-teal-600" aria-hidden="true"></i>
+                  <span>Arrastra tus fotos aquí o haz clic para subir</span>
+                </div>
+                <p class="text-[10px] text-stone-500">
+                  Admite JPG, PNG y WebP desde tu galería o cámara del móvil
+                </p>
+              </div>
+
+              <!-- MOSAICO DIDÁCTICO DE FOTOS -->
+              <div 
+                id="interactive-gallery-grid" 
+                class="grid grid-cols-3 sm:grid-cols-4 gap-2 mt-2.5 max-h-44 sm:max-h-48 overflow-y-auto no-scrollbar pr-0.5"
+              >
+                <!-- Generado dinámicamente por JavaScript -->
+              </div>
+            </div>
+
+            <!-- Footer con créditos y dedicatoria -->
+            <footer class="pt-2 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-500 mt-2">
+              <span class="font-cursive text-stone-700 text-base sm:text-lg">
+                #BodaKleibertYSandy
+              </span>
+              <span class="text-[10px] text-teal-700">
+                <i class="fa-solid fa-camera mr-1"></i> Toca una foto para ampliarla
+              </span>
+            </footer>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
