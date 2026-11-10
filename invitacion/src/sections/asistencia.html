@@ -3,10 +3,10 @@
         
         <header class="text-center mb-2 sm:mb-4">
           <span class="text-xs uppercase tracking-widest text-teal-800 font-semibold bg-teal-50 px-3 py-1 rounded-full border border-teal-200">
-            Reserva de Lugar • Registro Individual
+            Reserva de Lugar
           </span>
           <h2 class="text-2xl sm:text-4xl font-serif text-stone-900 mt-1">
-            Confirmación de Asistencia (RSVP)
+            Confirmación de Asistencia
           </h2>
           <p class="text-stone-600 text-xs sm:text-sm max-w-lg mx-auto">
             Para la mejor organización de mesas e invitaciones oficiales, <strong>el registro se realiza de 1 en uno por persona</strong>. La confirmación llegará a <strong>kleibertmedina@gmail.com</strong>.
@@ -21,9 +21,9 @@
             <div class="bg-teal-50/90 border border-teal-200/80 rounded-xl px-3 py-2 flex items-center justify-between text-[11px] text-teal-900">
               <div class="flex items-center gap-2">
                 <i class="fa-solid fa-user-check text-teal-700 text-sm" aria-hidden="true"></i>
-                <span><strong>Cupo individual:</strong> 1 persona por formulario. Si vas acompañado, envía un registro por cada invitado.</span>
+                <span><strong>Cupo individual:</strong> 1 persona por formulario.</span>
               </div>
-              <span class="bg-white border border-teal-300 font-bold px-2 py-0.5 rounded text-[10px] text-teal-800 shrink-0">1 Invitado</span>
+              <span class="bg-white border border-teal-300 font-bold px-2 py-0.5 rounded text-[10px] text-teal-800 shrink-0">1 Pase</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -68,6 +68,10 @@
                   <input type="radio" name="attendance" value="Lamentablemente no podré asistir" class="text-teal-600 focus:ring-teal-500">
                   <span class="text-stone-600">No podré asistir</span>
                 </label>
+                 <label class="flex items-center gap-2 p-2 rounded-lg border border-stone-200 bg-white cursor-pointer hover:bg-stone-50 transition text-xs">
+                  <input type="radio" name="attendance" value="Asistiré de forma virtual" class="text-teal-600 focus:ring-teal-500">
+                  <span class="text-stone-600">Virtual</span>
+                </label>
               </div>
             </fieldset>
 
@@ -107,7 +111,7 @@
                 <span>Confirmar Mi Asistencia (Correo)</span>
               </button>
 
-              <button 
+              <!-- <button 
                 type="button" 
                 onclick="sendWhatsAppRSVP()" 
                 class="py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition shadow"
@@ -115,7 +119,7 @@
               >
                 <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i>
                 <span>WhatsApp Novios</span>
-              </button>
+              </button> -->
             </div>
           </form>
         </div>
