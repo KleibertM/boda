@@ -3,9 +3,9 @@
        7. PLAYLIST DE LOS INVITADOS CON LOCALSTORAGE
        ================================================================= */
     const initialSongs = [
-      { name: "Carlos M.", song: "Danza Kuduro", artist: "Don Omar" },
-      { name: "Valeria R.", song: "Vivir Mi Vida", artist: "Marc Anthony" },
-      { name: "Andrés G.", song: "Bailando", artist: "Enrique Iglesias" }
+      { name: "Carlos M.", song: "Renuévame", artist: "Marcos Witt" },
+      { name: "Valeria R.", song: "La Bondad de Dios", artist: "Essential Worship / Evan Craft" },
+      { name: "Andrés G.", song: "Jesucristo Basta", artist: "Un Corazón" }
     ];
 
     function getSongs() {
