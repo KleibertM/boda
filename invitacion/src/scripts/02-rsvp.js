@@ -3,6 +3,9 @@
        5. ASISTENCIA RSVP INDIVIDUAL (1 EN 1)
        DESTINO: GOOGLE SHEETS (APPS SCRIPT), RESPALDO CORREO Y WHATSAPP
        ================================================================= */
+
+      
+
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXJ7mLSjsNsHgdRaB5_9xFCYurTo46ab8BJDkZtRobirD05_uSMqc0RF80C7Lur48s/exec";
     const rsvpForm = document.getElementById('rsvp-form');
 
