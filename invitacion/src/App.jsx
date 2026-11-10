@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import ambientMelodyUrl from './audio/holyXaxo.mp3?url'
 import chromeAfter from './sections/chrome-after.html?raw'
 import chromeBefore from './sections/chrome-before.html?raw'
 import Asistencia from './components/sections/Asistencia.jsx'
@@ -49,6 +50,7 @@ function App() {
     if (window.invitationInitialized) return
 
     window.invitationInitialized = true
+    window.ambientMelodyUrl = ambientMelodyUrl
     invitationScripts.forEach((source, index) => {
       const script = document.createElement('script')
       script.dataset.invitationModule = String(index)

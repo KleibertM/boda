@@ -6,7 +6,7 @@
 
       
 
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxXJ7mLSjsNsHgdRaB5_9xFCYurTo46ab8BJDkZtRobirD05_uSMqc0RF80C7Lur48s/exec";
+    window.GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxB4LubW8qgtdZETrbxAD5ewg7p2085xUp0amHhqJCxLPbr3hKRyaK-t1LO_X2NK2tR/exec";
     const rsvpForm = document.getElementById('rsvp-form');
 
     rsvpForm.addEventListener('submit', async function(e) {
@@ -44,7 +44,7 @@
 
       try {
         // Envío directo a Google Apps Script
-        await fetch(GOOGLE_SCRIPT_URL, {
+        await fetch(window.GOOGLE_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors', // Evita bloqueos por redirección de Google
           headers: {

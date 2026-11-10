@@ -14,13 +14,14 @@
     <a href="#recuerdos" class="nav-dot" aria-label="Ir a Álbum de Fotos QR" data-idx="6"></a>
   </nav>
 
-  <!-- Botón Sonido Ambiental (Web Audio API) -->
+  <!-- Botón de control para la canción de fondo de YouTube -->
   <aside class="fixed top-4 right-4 z-50">
     <button 
       id="ambient-sound-btn" 
       class="flex items-center justify-center w-11 h-11 rounded-full bg-white/90 backdrop-blur-md border border-teal-200/80 text-teal-800 shadow-md hover:bg-teal-50 transition active:scale-95" 
-      aria-label="Reproducir o pausar melodía de fondo"
-      title="Melodía suave de boda"
+      aria-label="Reproducir canción de fondo"
+      aria-pressed="false"
+      title="Reproducir o pausar canción de fondo"
     >
       <i id="sound-icon" class="fa-solid fa-music text-sm text-teal-700"></i>
     </button>

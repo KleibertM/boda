@@ -1,24 +1,18 @@
     /* global triggerToast, sanitizeText */
     /* =================================================================
-       7. PLAYLIST DE LOS INVITADOS CON LOCALSTORAGE
+       7. PLAYLIST COMPARTIDA DE LOS INVITADOS
        ================================================================= */
-    const initialSongs = [
-      { name: "Carlos M.", song: "Renuévame", artist: "Marcos Witt" },
-      { name: "Valeria R.", song: "La Bondad de Dios", artist: "Essential Worship / Evan Craft" },
-      { name: "Andrés G.", song: "Jesucristo Basta", artist: "Un Corazón" }
-    ];
+    const playlistApiUrl = window.GOOGLE_SCRIPT_URL;
+    let playlistSongs = [];
+    let playlistSyncErrorShown = false;
 
-    function getSongs() {
-      const stored = localStorage.getItem("wedding_playlist_data");
-      return stored ? JSON.parse(stored) : initialSongs;
-    }
-
-    function renderSongs() {
-      const list = getSongs();
+    function renderSongs(list = playlistSongs) {
       const container = document.getElementById('guest-songs-container');
       const badge = document.getElementById('playlist-count-badge');
+      const toggleButton = document.getElementById('toggle-guest-songs');
       container.innerHTML = "";
       badge.innerText = `${list.length} sugerencias`;
+      toggleButton.hidden = list.length <= 2;
 
       list.forEach(item => {
         const div = document.createElement('div');
@@ -34,7 +28,104 @@
       });
     }
 
-    document.getElementById('playlist-form').addEventListener('submit', function(e) {
+    function loadSharedSongs() {
+      return new Promise((resolve, reject) => {
+        const callbackName = `playlistCallback${Date.now()}${Math.random().toString(36).slice(2)}`;
+        const script = document.createElement('script');
+        const cleanup = () => {
+          delete window[callbackName];
+          script.remove();
+        };
+        const timeout = setTimeout(() => {
+          cleanup();
+          reject(new Error('Tiempo agotado al consultar la playlist.'));
+        }, 10000);
+
+        window[callbackName] = response => {
+          clearTimeout(timeout);
+          cleanup();
+          if (!response || !Array.isArray(response.songs)) {
+            reject(new Error(response?.error || 'Respuesta inválida al consultar la playlist.'));
+            return;
+          }
+          resolve(response.songs);
+        };
+        script.onerror = () => {
+          clearTimeout(timeout);
+          cleanup();
+          reject(new Error('No se pudo consultar la playlist compartida.'));
+        };
+        script.src = `${playlistApiUrl}?action=playlist&callback=${callbackName}&_=${Date.now()}`;
+        document.head.appendChild(script);
+      });
+    }
+
+    function countMatchingSongs(songs, song) {
+      return songs.filter(item =>
+        item.name === song.name &&
+        item.song === song.song &&
+        item.artist === song.artist
+      ).length;
+    }
+
+    async function addSharedSong(song) {
+      const previousSongs = await loadSharedSongs();
+      await fetch(playlistApiUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          tipo: 'playlist',
+          cancion: song.song,
+          artista: song.artist,
+          nombre: song.name,
+        }),
+      });
+
+      for (let attempt = 0; attempt < 6; attempt++) {
+        const songs = await loadSharedSongs();
+        if (countMatchingSongs(songs, song) > countMatchingSongs(previousSongs, song)) {
+          return songs;
+        }
+        await new Promise(resolve => setTimeout(resolve, 750));
+      }
+
+      throw new Error('La sugerencia no apareció en la segunda hoja.');
+    }
+
+    function refreshSharedSongs() {
+      loadSharedSongs()
+        .then(songs => {
+          playlistSongs = songs;
+          playlistSyncErrorShown = false;
+          renderSongs();
+        })
+        .catch(error => {
+          console.error(error);
+          if (!playlistSyncErrorShown) {
+            triggerToast('No se pudo actualizar la playlist compartida.');
+            playlistSyncErrorShown = true;
+          }
+        });
+    }
+
+    refreshSharedSongs();
+    setInterval(() => {
+      if (!document.hidden) refreshSharedSongs();
+    }, 15000);
+
+    document.getElementById('toggle-guest-songs').addEventListener('click', function() {
+      const container = document.getElementById('guest-songs-container');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isExpanded));
+      container.classList.toggle('max-h-24', isExpanded);
+      container.classList.toggle('max-h-none', !isExpanded);
+      container.classList.toggle('overflow-hidden', isExpanded);
+      container.classList.toggle('overflow-visible', !isExpanded);
+      this.innerText = isExpanded ? 'Ver todas las sugerencias' : 'Mostrar menos';
+    });
+
+    document.getElementById('playlist-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const recommender = document.getElementById('recommender-name').value.trim();
       const title = document.getElementById('song-name').value.trim();
@@ -42,16 +133,21 @@
 
       if (!recommender || !title || !artist) return;
 
-      const current = getSongs();
-      current.unshift({ name: recommender, song: title, artist: artist });
-      localStorage.setItem("wedding_playlist_data", JSON.stringify(current));
-
-      renderSongs();
-      triggerToast(`¡Tema agregado por ${recommender}!`);
-
-      document.getElementById('song-name').value = "";
-      document.getElementById('artist-name').value = "";
-      document.getElementById('now-playing-label').innerText = `♫ Recomendación: ${title} (${artist})`;
+      const submitButton = this.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      try {
+        const song = { name: recommender, song: title, artist };
+        playlistSongs = await addSharedSong(song);
+        renderSongs();
+        triggerToast(`¡Tema agregado por ${recommender}!`);
+        this.reset();
+        document.getElementById('now-playing-label').innerText = `♫ Recomendación: ${title} (${artist})`;
+      } catch (error) {
+        console.error(error);
+        triggerToast('No se pudo guardar en la playlist compartida. Intenta nuevamente.');
+      } finally {
+        submitButton.disabled = false;
+      }
     });
 
     function previewSong(track) {
@@ -60,5 +156,3 @@
     }
 
     window.previewSong = previewSong;
-
-    renderSongs();
